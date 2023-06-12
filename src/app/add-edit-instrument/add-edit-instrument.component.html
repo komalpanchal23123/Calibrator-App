@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" routerLink="/dashboard"
+            >Add & Edit Instrument</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="main-body">
+      <div class="container">
+        <p class="avatar avatar-name">Manager</p>
+        <img
+          src="../../assets/img/img_avatar.png"
+          alt="Avatar"
+          class="avatar"
+          style="margin-right: 0px"
+        />
+      </div>
+
+      <div class="container">
+        <table>
+          <tr>
+            <th
+              style="
+                font-size: x-large;
+                background-color: #c0c0c0;
+                text-align: left;
+              "
+            >
+              Add new Instrument Detail
+            </th>
+          </tr>
+        </table>
+        &nbsp;
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <td>Alias Name:</td>
+            <td>
+              <input type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td>Serial No:</td>
+            <td>
+              <input type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td>Make:</td>
+            <td>
+              <select style="width: 272px">
+                <option value="none" selected disabled hidden>Select</option>
+                <option>1</option>
+                <option>1</option>
+                <option>1</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Model:</td>
+            <td>
+              <select style="width: 272px">
+                <option value="none" selected disabled hidden>Select</option>
+                <option>1</option>
+                <option>1</option>
+                <option>1</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Instrument group:</td>
+            <td>
+              <select style="width: 272px">
+                <option value="none" selected disabled hidden>Select</option>
+                <option>1</option>
+                <option>1</option>
+                <option>1</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Assign to:</td>
+            <td>
+              <select style="width: 272px">
+                <option value="none" selected disabled hidden>Select</option>
+                <option>1</option>
+                <option>1</option>
+                <option>1</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Second Person:</td>
+            <td>
+              <select style="width: 272px">
+                <option value="none" selected disabled hidden>Select</option>
+                <option>1</option>
+                <option>1</option>
+                <option>1</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Calibration Team:</td>
+            <td>
+              <select style="width: 272px">
+                <option value="none" selected disabled hidden>Select</option>
+                <option>1</option>
+                <option>1</option>
+                <option>1</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Cal. Lead Time:</td>
+            <td>
+              <select style="width: 272px">
+                <option value="none" selected disabled hidden>Select</option>
+                <option>1</option>
+                <option>1</option>
+                <option>1</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <th
+              style="
+                font-size: x-large;
+                background-color: #c0c0c0;
+                text-align: left;
+              "
+            >
+              Calibration Timing Details
+            </th>
+          </tr>
+        </table>
+        &nbsp;
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <td>Calibration Cycle:</td>
+            <td>
+              <select style="width: 272px">
+                <option value="none" selected disabled hidden>Select</option>
+                <option>1</option>
+                <option>1</option>
+                <option>1</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Alert Begins At:</td>
+            <td>
+              <select style="width: 272px">
+                <option value="none" selected disabled hidden>Select</option>
+                <option>1</option>
+                <option>1</option>
+                <option>1</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Critical Alert Begins At:</td>
+            <td>
+              <select style="width: 272px">
+                <option value="none" selected disabled hidden>Select</option>
+                <option>1</option>
+                <option>1</option>
+                <option>1</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <th
+              style="
+                font-size: x-large;
+                background-color: #c0c0c0;
+                text-align: left;
+              "
+            >
+              Required Instruments to Calibrate
+              <a routerLink="/add-edit-instrument"
+                ><span style="padding-left: 500px; font-size: 18px"
+                  >+ Add new Instrument</span
+                ></a
+              >
+            </th>
+          </tr>
+        </table>
+        &nbsp;
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <td>Instrument 1:</td>
+            <td>Keithly K1234 SN0001</td>
+          </tr>
+          <tr>
+            <td>Instrument 2:</td>
+            <td>Agilent A1234 SN0001</td>
+          </tr>
+          <tr>
+            <td>
+              <a
+                ><span style="padding-left: 630px; font-size: 18px"
+                  >+ Add More Instrument Dependency</span
+                ></a
+              >
+            </td>
+          </tr>
+        </table>
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <th
+              style="
+                font-size: x-large;
+                background-color: #c0c0c0;
+                text-align: left;
+              "
+            >
+              Calibration Instructions
+              <a routerLink="/add-edit-instrument"
+                ><span style="padding-left: 600px; font-size: 18px"
+                  >+ Add new Instrument</span
+                ></a
+              >
+            </th>
+          </tr>
+        </table>
+        &nbsp;
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <th
+              style="
+                font-size: x-large;
+                background-color: #c0c0c0;
+                text-align: left;
+              "
+            >
+              Calibration Certificate Templates
+              <a
+                ><span style="padding-left: 450px; font-size: 18px"
+                  >+ Add new Certificate Templates</span
+                ></a
+              >
+            </th>
+          </tr>
+        </table>
+        &nbsp;
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <th style="font-size: x-large; background-color: #c0c0c0">
+              Calibration History
+              <a
+                ><span style="padding-left: 600px; font-size: 18px"
+                  >+ Add calibration history</span
+                ></a
+              >
+            </th>
+          </tr>
+        </table>
+        &nbsp;
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <td>Last Calibration Date:</td>
+            <td><input type="text" /></td>
+          </tr>
+          <tr>
+            <td>Next Calibration Date:</td>
+            <td>Calculate</td>
+          </tr>
+          <tr>
+            <td>
+              <a
+                ><span style="padding-left: 630px; font-size: 18px"
+                  >+ Add More History</span
+                ></a
+              >
+            </td>
+          </tr>
+        </table>
+      </div>
+      &nbsp;
+    </div>
+  </body>
+</html>

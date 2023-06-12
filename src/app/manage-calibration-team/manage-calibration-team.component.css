@@ -1,0 +1,47 @@
+.navbar-header {
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar {
+    /* vertical-align: middle; */
+    margin: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    float: right;
+}
+
+.avatar-name {
+    margin-top: 40px;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.glyphicon-edit {
+    margin-left: 40px;
+}

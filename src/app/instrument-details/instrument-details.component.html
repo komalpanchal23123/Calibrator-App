@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" routerLink="/dashboard">Instrument Details</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="main-body">
+      <div class="container">
+        <!-- <p class="avatar avatar-name">Manager</p> -->
+        <img
+          src="../../assets/img/img_avatar.png"
+          alt="Avatar"
+          class="avatar"
+          style="margin-right: 0px"
+        />
+      </div>
+
+      <div class="container" style="padding-left: 900px; font-size: 20px">
+        <a routerLink="/add-edit-instrument">+ Edit Instruments Details</a>
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <th
+              style="
+                font-size: x-large;
+                background-color: #c0c0c0;
+                text-align: left;
+              "
+            >
+              Instruments Detail
+              <a
+                ><span style="padding-left: 700px; font-size: 18px"
+                  >+ Make a Copy</span
+                ></a
+              >
+            </th>
+          </tr>
+        </table>
+        &nbsp;
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <td>Serial No:</td>
+            <td>SN1234</td>
+          </tr>
+          <tr>
+            <td>Make:</td>
+            <td>Keithly</td>
+          </tr>
+          <tr>
+            <td>Model:</td>
+            <td>K1234</td>
+          </tr>
+          <tr>
+            <td>Last Callibration:</td>
+            <td>31-05-2023</td>
+          </tr>
+          <tr>
+            <td>Next Callibration:</td>
+            <td>31-05-2023</td>
+          </tr>
+          <tr>
+            <td>Calibration Lead Time:</td>
+            <td>2 hours</td>
+          </tr>
+        </table>
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <th
+              style="
+                font-size: x-large;
+                background-color: #c0c0c0;
+                text-align: left;
+              "
+            >
+              Calibration Instructions
+              <a routerLink="/add-edit-instrument"
+                ><span style="padding-left: 600px; font-size: 18px"
+                  >+ Add new Instruction</span
+                ></a
+              >
+            </th>
+          </tr>
+        </table>
+        &nbsp;
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <td>Keithly K1234 Cert. Template Rev.3</td>
+            <td>
+              <a style="padding: 30px"
+                ><span class="glyphicon glyphicon-search"></span
+              ></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Keithly K1234 Cert. Template Rev.2</td>
+            <td>
+              <a style="padding: 30px"
+                ><span class="glyphicon glyphicon-search"></span
+              ></a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <th
+              style="
+                font-size: x-large;
+                background-color: #c0c0c0;
+                text-align: left;
+              "
+            >
+              Calibration Certificate Templates
+              <a routerLink="/add-edit-instrument"
+                ><span style="padding-left: 450px; font-size: 18px"
+                  >+ Add new Certificate Template</span
+                ></a
+              >
+            </th>
+          </tr>
+        </table>
+        &nbsp;
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <td>Keithly K1234 Cert. Template Rev.2</td>
+            <td>
+              <a style="padding: 30px"
+                ><span class="glyphicon glyphicon-search"></span
+              ></a>
+              <a><span class="glyphicon glyphicon-cloud-download"></span></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Keithly K1234 Cert. Template Rev.1</td>
+            <td>
+              <a style="padding: 30px"
+                ><span class="glyphicon glyphicon-search"></span
+              ></a>
+              <a><span class="glyphicon glyphicon-cloud-download"></span></a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <th
+              style="
+                font-size: x-large;
+                background-color: #c0c0c0;
+                text-align: left;
+              "
+            >
+              Calibration History
+            </th>
+          </tr>
+        </table>
+        &nbsp;
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table class="table-history">
+          <tr style="font-size: large">
+            <th>Last Calibration Date</th>
+            <th>Next Calibration Due</th>
+            <th>Assigned To</th>
+            <th>Second Person</th>
+            <th>Calibrate</th>
+          </tr>
+          <tr>
+            <td>S1234</td>
+            <td>Smith</td>
+            <td>K1234</td>
+            <td>05-Jun-2023</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>S1234</td>
+            <td>Smith</td>
+            <td>K1234</td>
+            <td>05-Jun-2023</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>S1234</td>
+            <td>Smith</td>
+            <td>K1234</td>
+            <td>05-Jun-2023</td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

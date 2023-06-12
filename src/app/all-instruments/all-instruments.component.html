@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" routerLink="/dashboard"
+            >All Instruments - Calibration Management Software</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="main-body">
+      <div class="container">
+        <!-- <p class="avatar avatar-name">Manager</p> -->
+        <img
+          src="../../assets/img/img_avatar.png"
+          alt="Avatar"
+          class="avatar"
+          style="margin-right: 0px"
+        />
+      </div>
+
+      <div class="container">
+        <table>
+          <tr>
+            <th
+              style="
+                font-size: xx-large;
+                background-color: #c0c0c0;
+                text-align: left;
+              "
+            >
+              All Instruments
+              <a routerLink="/add-edit-instrument"
+                ><span style="padding-left: 600px; font-size: 18px"
+                  >+ Add new Instrument</span
+                ></a
+              >
+            </th>
+          </tr>
+        </table>
+        &nbsp;
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr style="font-size: large">
+            <th>Instrument Sr.No</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Calibration Due Date</th>
+            <th>Assigned To</th>
+            <th>Second Person</th>
+          </tr>
+          <tr>
+            <td>
+              <a routerLink="/instrument-details"
+                ><span class="glyphicon glyphicon-edit"></span
+              ></a>
+              S1234
+            </td>
+            <td>Smith</td>
+            <td>K1234</td>
+            <td>05-Jun-2023</td>
+            <td>David</td>
+            <td>Kiara</td>
+          </tr>
+          <tr>
+            <td>
+              <a routerLink="/instrument-details"
+                ><span class="glyphicon glyphicon-edit"></span
+              ></a>
+              S1234
+            </td>
+            <td>Smith</td>
+            <td>K1234</td>
+            <td>05-Jun-2023</td>
+            <td>David</td>
+            <td>Kiara</td>
+          </tr>
+          <tr>
+            <td>
+              <a routerLink="/instrument-details"
+                ><span class="glyphicon glyphicon-edit"></span
+              ></a>
+              S1234
+            </td>
+            <td>Smith</td>
+            <td>K1234</td>
+            <td>05-Jun-2023</td>
+            <td>David</td>
+            <td>Kiara</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

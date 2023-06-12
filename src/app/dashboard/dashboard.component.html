@@ -1,95 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">DashBoard</a>
-            </div>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">DashBoard</a>
         </div>
+      </div>
     </nav>
 
-    <div>
-        <img src="../../assets/img/img_avatar.png" alt="Avatar" class="avatar" style="float: right;">
-    </div>
-    &nbsp;
+    <div class="main-body">
+      <div>
+        <img
+          src="../../assets/img/img_avatar.png"
+          alt="Avatar"
+          class="avatar"
+          style="float: right"
+        />
+      </div>
 
-    <div class="container">
+      <div class="container">
         <table>
-            <tr>
-                <th style="font-size: xx-large;;">Pending Approvals</th>
-            </tr>
+          <tr>
+            <th
+              style="
+                font-size: xx-large;
+                background-color: #c0c0c0;
+                text-align: left;
+              "
+            >
+              Pending Approvals
+            </th>
+          </tr>
         </table>
-        <table>
-            <tr style="font-size: large;">
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Points</th>
-            </tr>
-            <tr>
-              <td>Jill</td>
-              <td>Smith</td>
-              <td>50</td>
-            </tr>
-            <tr>
-              <td>Eve</td>
-              <td>Jackson</td>
-              <td>94</td>
-            </tr>
-            <tr>
-              <td>Adam</td>
-              <td>Johnson</td>
-              <td>67</td>
-            </tr>
-          </table>
-    </div>
-    &nbsp;
+        &nbsp;
 
-    <div class="container">
         <table>
-            <tr>
-                <th style="font-size: xx-large;;">Upcoming Calibration Assigned To You</th>
-            </tr>
+          <tr style="font-size: large">
+            <th>Instrument Sr.No</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Calibrator</th>
+            <th>Certificate</th>
+            <th>Approve</th>
+          </tr>
+          <tr>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <td>Eve</td>
+            <td>Jackson</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+          </tr>
+          <tr>
+            <td>Adam</td>
+            <td>Johnson</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+          </tr>
         </table>
+      </div>
+      &nbsp;
+
+      <div class="container">
         <table>
-            <tr style="font-size: large;">
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Points</th>
-            </tr>
-            <tr>
-              <td>Jill</td>
-              <td>Smith</td>
-              <td>50</td>
-            </tr>
-            <tr>
-              <td>Eve</td>
-              <td>Jackson</td>
-              <td>94</td>
-            </tr>
-            <tr>
-              <td>Adam</td>
-              <td>Johnson</td>
-              <td>67</td>
-            </tr>
-          </table>
-          
-    </div>
-    &nbsp;
+          <tr>
+            <th
+              style="
+                font-size: xx-large;
+                background-color: #c0c0c0;
+                text-align: left;
+              "
+            >
+              Upcoming Calibration Assigned To You
+            </th>
+          </tr>
+        </table>
 
-    <div class="container">
-        
-    </div>
-</body>
+        <div>
+          <button type="button" class="button" routerLink="/all-instrument">
+            View All Instruments
+          </button>
+        </div>
 
+        <table>
+          <tr style="font-size: large">
+            <th>Instrument Sr.No</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Calibration Due Date</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Eve</td>
+            <td>Jackson</td>
+            <td>94</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Adam</td>
+            <td>Johnson</td>
+            <td>67</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      &nbsp;
+
+      <div class="container">
+        <table>
+          <tr>
+            <th
+              style="
+                font-size: xx-large;
+                background-color: #c0c0c0;
+                text-align: left;
+              "
+            >
+              Manage Calstudio
+            </th>
+          </tr>
+        </table>
+        &nbsp;
+
+        <div class="calstudio">
+          <a href="" class="a-calstudio">Manage Users</a>
+          <a routerLink="/all-instrument" class="a-calstudio"
+            >Manage Instruments</a
+          >
+          <a routerLink="/manage-instrument-group" class="a-calstudio"
+            >Manage Instrument Groups</a
+          >
+          <a routerLink="/manage-calibration-team" class="a-calstudio"
+            >Manage Calibration Team</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

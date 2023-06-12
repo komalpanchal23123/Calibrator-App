@@ -1,42 +1,76 @@
 .navbar-header {
-    width: 100% !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-body {
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
-	background-color: #fff;
-	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-	position: relative;
-	overflow: hidden;
-	/* width: 768px; */
-    width: 900px;
-	max-width: 100%;
-	min-height: 480px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  /* width: 768px; */
+  width: 900px;
+  max-width: 100%;
+  min-height: 480px;
 }
 
 .avatar {
-    /* vertical-align: middle; */
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    
-  }
+  /* vertical-align: middle; */
+  margin: 20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
 
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid #ddd;
-  }
-  
-  th, td {
-    text-align: left;
-    padding: 16px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  text-align: center;
+  ;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 2px;
+  border-radius: 40px;
+  float: right;
+}
+
+.calstudio {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 20px;
+}
+
+.a-calstudio {
+  padding: 10px;
+  font-size: 18px;
+}
