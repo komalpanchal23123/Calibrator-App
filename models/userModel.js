@@ -1,39 +1,41 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
+const validator = require("validator");
 
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Please provide your name"],
+    //required: [true, "Please provide your name"],
   },
   email: {
     type: String,
-    required: [true, "Please provide your email"],
+    //required: [true, "Please provide your email"],
     unique: true,
     lowercase: true,
-    // validate: [validator.isEmail, "Please enter valid email"],
+    validate: [validator.isEmail, "Please enter valid email"],
   },
   photo: { type: String, default: "default.jpg" },
   role: {
     type: String,
-    enum: ["user", "guide", "lead-guide", "admin"],
+    enum: ["user", "manager", "lead-guide", "admin"],
     default: "user",
   },
   password: {
     type: String,
-    required: [true, "Please provide your password"],
-    minlength: 8,
+    //required: [true, "Please provide your password"],
+    //minlength: 8,
     select: false,
   },
   passwordConfirm: {
     type: String,
-    required: [true, "Please confirm your email"],
-    // validate: {
-    //   // this only works on create and  save !
-    //   validator: function (el) {
-    //     return el === this.password;
-    //   },
-    //   message: "Password are not same !",
-    // },
+    //required: [true, "Please confirm your ConfirmPassword"],
+    validate: {
+      // this only works on create and  save !
+      validator: function (el) {
+        return el === this.password;
+      },
+      message: "Password are not same !",
+    },
   },
   //passwordChangedAt: { type: Date, default: Date.now },
   passwordResetToken: { type: String },
@@ -44,6 +46,13 @@ const userSchema = new mongoose.Schema({
     select: false,
   },
 });
+
+userSchema.methods.correctPassword = async function (
+  candidatePassword,
+  userPassword
+) {
+  return await bcrypt.compare(candidatePassword, userPassword);
+};
 
 const User = mongoose.model("User", userSchema);
 
