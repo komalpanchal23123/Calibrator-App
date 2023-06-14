@@ -5,11 +5,11 @@ const validator = require("validator");
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    //required: [true, "Please provide your name"],
+    required: [true, "Please provide your name"],
   },
   email: {
     type: String,
-    //required: [true, "Please provide your email"],
+    required: [true, "Please provide your email"],
     unique: true,
     lowercase: true,
     validate: [validator.isEmail, "Please enter valid email"],
@@ -22,13 +22,13 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    //required: [true, "Please provide your password"],
+    required: [true, "Please provide your password"],
     //minlength: 8,
-    select: false,
+    //select: false,
   },
   passwordConfirm: {
     type: String,
-    //required: [true, "Please confirm your ConfirmPassword"],
+    required: [true, "Please confirm your ConfirmPassword"],
     validate: {
       // this only works on create and  save !
       validator: function (el) {
@@ -38,8 +38,8 @@ const userSchema = new mongoose.Schema({
     },
   },
   //passwordChangedAt: { type: Date, default: Date.now },
-  passwordResetToken: { type: String },
-  passwordResetExpires: { type: Date },
+  // passwordResetToken: { type: String },
+  // passwordResetExpires: { type: Date },
   active: {
     type: Boolean,
     default: true,

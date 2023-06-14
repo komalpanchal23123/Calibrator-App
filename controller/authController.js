@@ -34,7 +34,7 @@ const createSendToken = (user, statusCode, req, res) => {
 };
 
 exports.signUp = catchAsync(async (req, res, next) => {
-  // const newUser = await User.create(req.body);
+  //const newUser = await User.create(req.body);
   const newUser = await User.create({
     name: req.body.name,
     email: req.body.email,
@@ -43,12 +43,14 @@ exports.signUp = catchAsync(async (req, res, next) => {
     role: req.body.role,
   });
   console.log("req", req.body);
-  res.status(201).json({
-    status: "success",
-    data: {
-      user: newUser,
-    },
-  });
+  //const token = signToken(newUser._id);
+  createSendToken(newUser, 201, req, res);
+  // res.status(201).json({
+  //   status: "success",
+  //   data: {
+  //     user: newUser,
+  //   },
+  // });
 });
 
 exports.login = catchAsync(async (req, res, next) => {
@@ -61,11 +63,12 @@ exports.login = catchAsync(async (req, res, next) => {
 
   // 2) check if user exists and pwd is correct
   const user = await User.findOne({ email }).select("+password");
+  //console.log(user);
   const correct = await user.correctPassword(password, user.password);
 
-  // if (!user || !correct) {
-  //   return next(new AppError("Incorrect email or password !!!", 401));
-  // }
+  if (!user || !correct) {
+    return next(new AppError("Incorrect email or password !!!", 401));
+  }
 
   // 3) if everything oky, send token to client
   createSendToken(user, 200, req, res);
@@ -75,6 +78,80 @@ exports.login = catchAsync(async (req, res, next) => {
   //   //token,
   // });
 });
+
+// exports.login = catchAsync(async (req, res, next) => {
+//   try {
+//     // check if the user exists
+//     const user = await User.findOne({ username: req.body.username });
+//     if (user) {
+//       //check if password matches
+//       const result = req.body.password === user.password;
+//       if (result) {
+//         res.render("secret");
+//       } else {
+//         res.status(400).json({ error: "password doesn't match" });
+//       }
+//     } else {
+//       res.status(400).json({ error: "User doesn't exist" });
+//     }
+//   } catch (error) {
+//     res.status(400).json({ error });
+//   }
+// });
+
+exports.logout = (req, res) => {
+  res.cookie("jwt", "loggedout", {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+  });
+  res.status(200).json({ status: "success" });
+};
+
+// exports.protect = catchAsync(async (req, res, next) => {
+//   // 1) Getting token and check if exists
+//   let token;
+//   if (
+//     req.headers.authorization &&
+//     req.headers.authorization.startsWith("Bearer")
+//   ) {
+//     token = req.headers.authorization.split(" ")[1];
+//   } else if (req.cookies.jwt) {
+//     token = req.cookies.jwt;
+//   }
+//   // console.log(token);
+
+//   if (!token) {
+//     return next(
+//       new AppError("You are not logged in! Please login to get access !!!", 401)
+//     );
+//   }
+//   // 2) Verificaton token
+//   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+//   //console.log(decoded);
+
+//   // 3) Check if user still exist
+//   const currentUser = await User.findById(decoded.id);
+//   if (!currentUser) {
+//     return next(
+//       new AppError(
+//         "The user belonging to this token does not longer exist.",
+//         401
+//       )
+//     );
+//   }
+// });
+
+exports.restrictTo =
+  (...roles) =>
+  (req, res, next) => {
+    // roles is array: roles ['manager', 'user'] and current role = 'user
+    if (!roles.includes(req.user.role)) {
+      return next(
+        new AppError("You do not have permission to perform this action", 403)
+      );
+    }
+    next();
+  };
 
 exports.isLoggedIn = async (req, res, next) => {
   if (req.cookies.jwt) {

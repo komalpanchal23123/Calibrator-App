@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { LoginRoutingModule } from './login/login-routing.module';
@@ -34,6 +35,7 @@ import { ManageCalibrationTeamRoutingModule } from './manage-calibration-team/ma
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     LoginRoutingModule,
     SignUpRoutingModule,

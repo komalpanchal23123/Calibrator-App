@@ -11,11 +11,11 @@
   <body>
     <div class="container" id="container">
       <div class="form-container log-in-container">
-        <form action="" method="POST" class=".form--login">
+        <form action="" method="post" id="form-body">
           <h1>Login</h1>
           <span>or use your account</span>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <input type="email" placeholder="Email" id="email" />
+          <input type="password" placeholder="Password" id="password" />
           <div class="remember">
             <label>
               <input type="checkbox" checked="checked" name="remember" />
@@ -25,7 +25,7 @@
             <a href="#">Forgot your password?</a>
           </div>
 
-          <button routerLink="/dashboard">Log In</button>
+          <button type="submit" routerLink="/dashboard">Log In</button>
 
           <div class="social-container">
             <a href="#" class="social"><i class="fa fa-facebook fa-2x"></i></a>
@@ -44,5 +44,7 @@
 			</div>
 		</div> -->
     </div>
+    <script src="../../../utils/login.js"></script>
+    <script src="../../../utils/index.js"></script>
   </body>
 </html>
