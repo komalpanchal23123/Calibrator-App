@@ -1,38 +1,22 @@
 const Instrument = require("../models/instrumentModel");
 const catchAsync = require("../utils/catchAsync");
 const APIFeatures = require("../utils/apiFeature");
+const factory = require("../utils/handlerFactory");
 
-exports.getAllInstruments = (req, res) => {
-  res.status(500).json({
-    status: "error",
-    message: "route not defined",
+exports.getAllInstruments = catchAsync(async (req, res, next) => {
+  //console.log("++++++++++++", req.body);
+  const instrument = await Instrument.find();
+  res.status(200).json({
+    status: "success",
+    results: instrument.length,
+    data: {
+      instrument,
+    },
   });
-};
+  //console.log("++++++++++++", req.body);
+});
 
-exports.createInstrument = (req, res) => {
-  res.status(500).json({
-    status: "error",
-    message: "route not defined",
-  });
-};
-
-exports.getInstrument = (req, res) => {
-  res.status(500).json({
-    status: "error",
-    message: "route not defined",
-  });
-};
-
-exports.updateInstrument = (req, res) => {
-  res.status(500).json({
-    status: "error",
-    message: "route not defined",
-  });
-};
-
-exports.deleteInstrument = (req, res) => {
-  res.status(500).json({
-    status: "error",
-    message: "route not defined",
-  });
-};
+exports.getInstrument = factory.getOne(Instrument);
+exports.updateInstrument = factory.updateOne(Instrument);
+exports.deleteInstrument = factory.deleteOne(Instrument);
+exports.createInstrument = factory.createOne(Instrument);

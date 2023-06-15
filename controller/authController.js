@@ -34,23 +34,17 @@ const createSendToken = (user, statusCode, req, res) => {
 };
 
 exports.signUp = catchAsync(async (req, res, next) => {
-  //const newUser = await User.create(req.body);
-  const newUser = await User.create({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-    passwordConfirm: req.body.passwordConfirm,
-    role: req.body.role,
-  });
+  const newUser = await User.create(req.body);
+  // const newUser = await User.create({
+  //   name: req.body.name,
+  //   email: req.body.email,
+  //   password: req.body.password,
+  //   passwordConfirm: req.body.passwordConfirm,
+  //   role: req.body.role,
+  // });
   console.log("req", req.body);
   //const token = signToken(newUser._id);
   createSendToken(newUser, 201, req, res);
-  // res.status(201).json({
-  //   status: "success",
-  //   data: {
-  //     user: newUser,
-  //   },
-  // });
 });
 
 exports.login = catchAsync(async (req, res, next) => {
@@ -182,3 +176,42 @@ exports.isLoggedIn = async (req, res, next) => {
   }
   next();
 };
+
+// exports.forgotPassword = catchAsync(async (req, res, next) => {
+//   // 1) Get user based on POSTed email
+//   const user = await User.findOne({ email: req.body.email });
+//   if (!user) {
+//     return next(new AppError("There is no user with that email !!!", 404));
+//   }
+
+//   // 2) Generate random reset token
+//   const resetToken = user.createPasswordResetToken();
+//   await user.save({ validateBeforeSave: false });
+
+//   // 3) Send it to user's email
+//   // const resetURL = `${req.protocol}://${req.get(
+//   //   'host'
+//   // )}/api/v1/users/resetPassword/${resetToken}`;
+
+//   //const message = `Forgot ur password? Submit a PATCH request with your new password and confirmPassword to: ${resetURL}. \n If you didn't forgot your password, Please ignre this email`;
+
+//   try {
+//     // await Email({
+//     //   email: user.email,
+//     //   subject: 'Your Password reset token ( valid for 10 mins)',
+//     //   message,
+//     // });
+
+//     //await new Email(user, resetURL).sendPasswordReset();
+
+//     await res.status(200).json({
+//       status: "success",
+//       message: "Token sent to email",
+//     });
+//   } catch (err) {
+//     user.passwordResetToken = undefined;
+//     user.passwordResetExpires = undefined;
+//     await user.save({ validateBeforeSave: false });
+//     return next(new AppError("Error sending email. Try again later !", 500));
+//   }
+// });
