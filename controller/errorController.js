@@ -95,7 +95,7 @@ module.exports = (err, req, res, next) => {
     if (err.name === "CastError") {
       error = handleCastErrorDB(error);
     }
-    if (err.code === 11000) {
+    if (error.code === 11000) {
       error = handleDuplicateFieldsDB(error);
     }
     if (err.name === "ValidationError") {

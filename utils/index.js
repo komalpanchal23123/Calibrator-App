@@ -2,7 +2,7 @@ import "@babel/polyfill";
 import { login, logout } from "./login";
 //import { showAlert } from "./alerts";
 
-const loginForm = document.getElementById(".form-body");
+const loginForm = document.getElementById("form-login");
 const logOutBtn = document.querySelector("navbar-logout");
 
 if (loginForm)

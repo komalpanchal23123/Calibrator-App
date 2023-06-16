@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const port = 3000;
 const dotenv = require("dotenv");
 const path = require("path");
@@ -10,6 +11,7 @@ const AppError = require("./utils/appError");
 const app = express();
 
 app.set("view engine", "html");
+app.use(cors());
 // app.set("app", path.join(__dirname, "app"));
 
 dotenv.config({ path: "./config.env" });
@@ -49,46 +51,18 @@ app.use(cookieParser());
 //   //console.log(req.headers);
 // });
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./app/login/login.html"));
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
 });
+
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./app/login/login.html"));
+// });
 
 app.listen(port, (req, res) => {
   console.log(`App running on port ${port}...`);
 });
-
-// app.post("/signup", function (req, res) {
-//   res.render("dashboard");
-// });
-
-// app.post("/login", async function (req, res) {
-//   try {
-//     // check if the user exists
-//     const user = await User.findOne({ username: req.body.username });
-//     if (user) {
-//       //check if password matches
-//       const result = req.body.password === user.password;
-//       if (result) {
-//         res.render("secret");
-//       } else {
-//         res.status(400).json({ error: "password doesn't match" });
-//       }
-//     } else {
-//       res.status(400).json({ error: "User doesn't exist" });
-//     }
-//   } catch (error) {
-//     res.status(400).json({ error });
-//   }
-// });
-
-// app.get("/logout", function (req, res) {
-//   req.logout(function (err) {
-//     if (err) {
-//       return next(err);
-//     }
-//     res.redirect("/");
-//   });
-// });
 
 //ROUTES
 app.use("/", viewRouter);

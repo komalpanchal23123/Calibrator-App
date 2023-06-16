@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { LoginRoutingModule } from './login/login-routing.module';
@@ -20,6 +21,7 @@ import { AddEditInstrumentComponent } from './add-edit-instrument/add-edit-instr
 import { AddEditInstrumentRoutingModule } from './add-edit-instrument/add-edit-instrument-routing.module';
 import { ManageCalibrationTeamComponent } from './manage-calibration-team/manage-calibration-team.component';
 import { ManageCalibrationTeamRoutingModule } from './manage-calibration-team/manage-calibration-team-routing.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,9 @@ import { ManageCalibrationTeamRoutingModule } from './manage-calibration-team/ma
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
+    CommonModule,
+    ReactiveFormsModule,
     LoginRoutingModule,
     SignUpRoutingModule,
     DashBoardRoutingModule,
