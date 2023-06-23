@@ -10,13 +10,17 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService {
+export class InstrumentDetailsService {
   constructor(private http: HttpClient) {}
+  instrumentId: string;
 
-  getLogin(loginData: any) {
-    console.log('============data', loginData);
-    return this.http.post('http://127.0.0.1:3000/api/v1/user/login', {
-      ...loginData,
-    });
+  ngOnInit(): void {
+    this.getInstrumentDetail(this.instrumentId);
+  }
+
+  getInstrumentDetail(instrumentId: string) {
+    return this.http.get(
+      `http://127.0.0.1:3000/api/v1/instruments/${instrumentId}`
+    );
   }
 }

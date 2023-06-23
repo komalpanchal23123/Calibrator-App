@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -10,13 +10,14 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService {
+export class ManageInstrumentGroupService implements OnInit {
   constructor(private http: HttpClient) {}
 
-  getLogin(loginData: any) {
-    console.log('============data', loginData);
-    return this.http.post('http://127.0.0.1:3000/api/v1/user/login', {
-      ...loginData,
-    });
+  ngOnInit(): void {
+    this.getAllGroups();
+  }
+
+  getAllGroups() {
+    return this.http.get('http://127.0.0.1:3000/api/v1/group');
   }
 }

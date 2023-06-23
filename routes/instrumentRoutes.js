@@ -4,8 +4,6 @@ const instrumentController = require("../controller/instrumentController");
 
 const router = express.Router();
 
-router.use(authController.isLoggedIn);
-
 router
   .route("/")
   .get(instrumentController.getAllInstruments)

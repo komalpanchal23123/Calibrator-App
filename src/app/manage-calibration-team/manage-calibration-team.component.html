@@ -25,7 +25,7 @@
 
     <div class="main-body">
       <div class="container">
-        <p class="avatar avatar-name">Manager</p>
+        <p class="avatar avatar-name">{{ userRole | titlecase }}</p>
         <img
           src="../../assets/img/img_avatar.png"
           alt="Avatar"
@@ -46,29 +46,11 @@
             <th>Team Name</th>
             <th>Turn around time</th>
           </tr>
-          <tr>
-            <td>1</td>
-            <td>Smith</td>
+          <tr *ngFor="let allTeam of allTeams; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ allTeam.teamName || "-" }}</td>
             <td>
-              2 hours<a href=""
-                ><span class="glyphicon glyphicon-edit"></span
-              ></a>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Smith</td>
-            <td>
-              2 hours<a href=""
-                ><span class="glyphicon glyphicon-edit"></span
-              ></a>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Smith</td>
-            <td>
-              2 hours<a href=""
+              {{ allTeam.teamAroundTime || "-" }} hours<a
                 ><span class="glyphicon glyphicon-edit"></span
               ></a>
             </td>

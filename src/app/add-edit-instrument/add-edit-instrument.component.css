@@ -38,3 +38,14 @@ td {
     text-align: left;
     padding: 5px;
 }
+
+.row {
+    margin-left: 10px;
+}
+
+.card-border {
+    border: 1px grey solid;
+    background-color: lightgrey;
+    border-radius: 10px;
+    margin: 5px;
+}

@@ -25,7 +25,7 @@
 
     <div class="main-body">
       <div class="container">
-        <p class="avatar avatar-name">Manager</p>
+        <p class="avatar avatar-name">{{ userRole | titlecase }}</p>
         <img
           src="../../assets/img/img_avatar.png"
           alt="Avatar"
@@ -222,11 +222,11 @@
               "
             >
               Required Instruments to Calibrate
-              <a routerLink="/add-edit-instrument"
+              <!-- <a routerLink="/add-edit-instrument"
                 ><span style="padding-left: 500px; font-size: 18px"
                   >+ Add new Instrument</span
                 ></a
-              >
+              > -->
             </th>
           </tr>
         </table>
@@ -237,21 +237,114 @@
       <div class="container">
         <table>
           <tr>
-            <td>Instrument 1:</td>
-            <td>Keithly K1234 SN0001</td>
-          </tr>
-          <tr>
-            <td>Instrument 2:</td>
-            <td>Agilent A1234 SN0001</td>
-          </tr>
-          <tr>
             <td>
               <a
-                ><span style="padding-left: 630px; font-size: 18px"
-                  >+ Add More Instrument Dependency</span
+                ><span style="font-size: 18px"
+                  >+ Add Instrument Dependency</span
                 ></a
               >
             </td>
+          </tr>
+          <tr>
+            <!-- <td>Instrument 1:</td>
+            <td>Keithly K1234 SN0001</td>
+            <tr>
+              <td>Instrument 2:</td>
+              <td>Agilent A1234 SN0001</td>
+            </tr> -->
+            <div class="row">
+              <div class="col-sm-4 card-border">
+                <div class="card">
+                  <div class="card-body">
+                    <div
+                      class="card-body"
+                      style="display: flex; flex-direction: column"
+                    >
+                      <h3 class="card-title">
+                        DMM(Group A)
+                        <span style="float: end; margin-left: 150px">All</span>
+                      </h3>
+                    </div>
+
+                    <!-- <p class="card-text"> -->
+                    <table
+                      class="card-text"
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        font-size: 15px;
+                      "
+                    >
+                      <tr>
+                        <td>Instrument 1:</td>
+                        <td style="padding-left: 70px">Keithly K1234 SN0001</td>
+                      </tr>
+                      <tr>
+                        <td>Instrument 2:</td>
+                        <td style="padding-left: 70px">Agilent A1234 SN0001</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <a
+                            ><span style="font-size: 15px"
+                              >+ Add Instrument</span
+                            ></a
+                          >
+                        </td>
+                      </tr>
+                    </table>
+                    <!-- </p> -->
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 card-border">
+                <div class="card">
+                  <div class="card-body">
+                    <div
+                      class="card-body"
+                      style="display: flex; flex-direction: column"
+                    >
+                      <h3 class="card-title">
+                        PS(Group B)
+                        <span style="float: end; margin-left: 90px"
+                          >Either OR</span
+                        >
+                      </h3>
+                    </div>
+
+                    <!-- <p class="card-text"> -->
+                    <table
+                      class="card-text"
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        font-size: 15px;
+                      "
+                    >
+                      <tr>
+                        <td>Instrument 1:</td>
+                        <td style="padding-left: 70px">Keithly K1234 SN0001</td>
+                      </tr>
+                      <tr>
+                        <td>Instrument 2:</td>
+                        <td style="padding-left: 70px">Agilent A1234 SN0001</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <a
+                            ><span style="font-size: 15px"
+                              >+ Add Instrument</span
+                            ></a
+                          >
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- </p> -->
+                  </div>
+                </div>
+              </div>
+            </div>
           </tr>
         </table>
       </div>

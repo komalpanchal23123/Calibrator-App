@@ -16,7 +16,7 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">DashBoard</a>
+          <a class="navbar-brand">DashBoard</a>
         </div>
       </div>
     </nav>
@@ -31,7 +31,7 @@
         />
       </div>
 
-      <div class="container">
+      <div class="container" *ngIf="userRole !== 'calibrator'">
         <table>
           <tr>
             <th
@@ -56,29 +56,13 @@
             <th>Certificate</th>
             <th>Approve</th>
           </tr>
-          <tr>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-          </tr>
-          <tr>
-            <td>Eve</td>
-            <td>Jackson</td>
-            <td>94</td>
-            <td>94</td>
-            <td>94</td>
-            <td>94</td>
-          </tr>
-          <tr>
-            <td>Adam</td>
-            <td>Johnson</td>
-            <td>67</td>
-            <td>67</td>
-            <td>67</td>
-            <td>67</td>
+          <tr *ngFor="let pendingApproval of pendingApprovals">
+            <td>{{ pendingApproval.serialNo || "-" }}</td>
+            <td>{{ pendingApproval.make || "-" }}</td>
+            <td>{{ pendingApproval.model || "-" }}</td>
+            <td>{{ pendingApproval.calibrator || "-" }}</td>
+            <td>{{ pendingApproval.certificate || "-" }}</td>
+            <td>{{ pendingApproval.approve || "-" }}</td>
           </tr>
         </table>
       </div>
@@ -113,32 +97,22 @@
             <th>Calibration Due Date</th>
             <th>Status</th>
           </tr>
-          <tr>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Eve</td>
-            <td>Jackson</td>
-            <td>94</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Adam</td>
-            <td>Johnson</td>
-            <td>67</td>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let calibrationAssign of calibrationAssigns">
+            <td>{{ calibrationAssign.serialNo || "-" }}</td>
+            <td>{{ calibrationAssign.make || "-" }}</td>
+            <td>{{ calibrationAssign.model || "-" }}</td>
+            <td>
+              {{
+                calibrationAssign.calibrationDueDate | date : "dd-MMMM-y" || "-"
+              }}
+            </td>
+            <td>{{ calibrationAssign.status || "-" }}</td>
           </tr>
         </table>
       </div>
       &nbsp;
 
-      <div class="container">
+      <div class="container" *ngIf="userRole !== 'calibrator'">
         <table>
           <tr>
             <th

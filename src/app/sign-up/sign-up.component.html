@@ -12,18 +12,25 @@
   <body>
     <div class="container" id="container">
       <div class="form-container log-in-container">
-        <form action="#" method="post" id="form-submit">
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
           <h1>Sign Up</h1>
           <p>Please fill in this form to create an account.</p>
 
           <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required />
+          <input
+            type="text"
+            placeholder="Enter Email"
+            name="email"
+            formControlName="email"
+            required
+          />
 
           <label for="psw"><b>Password</b></label>
           <input
             type="password"
             placeholder="Enter Password"
             name="psw"
+            formControlName="password"
             required
           />
 
@@ -32,6 +39,7 @@
             type="password"
             placeholder="Repeat Password"
             name="psw-repeat"
+            formControlName="confirmPassword"
             required
           />
 
@@ -53,9 +61,7 @@
           <div class="clearfix">
             <button type="button" class="cancelbtn">Cancel</button>
             &nbsp;
-            <button type="submit" class="signupbtn" (click)="onSignUp()">
-              Sign Up
-            </button>
+            <button type="submit">Sign Up</button>
           </div>
 
           <div class="social-container">

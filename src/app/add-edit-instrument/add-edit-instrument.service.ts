@@ -10,13 +10,13 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService {
+export class AddEditInstrumentService {
   constructor(private http: HttpClient) {}
 
-  getLogin(loginData: any) {
-    console.log('============data', loginData);
-    return this.http.post('http://127.0.0.1:3000/api/v1/user/login', {
-      ...loginData,
-    });
-  }
+  // getAddEditInstrument(addEditData: any, id: string) {
+  //   console.log('============data', addEditData);
+  //   return this.http.patch('http://127.0.0.1:3000/api/v1/instruments/' + id, {
+  //     ...addEditData,
+  //   });
+  // }
 }

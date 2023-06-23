@@ -9,10 +9,12 @@ const instrumentSchema = new mongoose.Schema({
   },
   make: {
     type: String,
+    enum: ["Keithly", "Agilent", "Keysight", "National Instruments"],
     required: [true, "Please provide Make of Instrument"],
   },
   model: {
     type: String,
+    enum: ["1000G", "M1234", "X1234"],
     required: [true, "Please provide Model number of Instrument"],
   },
   calibrator: {
@@ -37,6 +39,18 @@ const instrumentSchema = new mongoose.Schema({
   },
   status: {
     type: String,
+  },
+  lastCalibrationDate: {
+    type: Date,
+  },
+  nextCalibrationDue: {
+    type: Date,
+  },
+  calibrationTeam: {
+    type: Array,
+  },
+  calLeadTime: {
+    type: Number,
   },
 });
 

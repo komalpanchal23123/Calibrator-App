@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
+import { NotificationService } from '../notification.service';
+import { AuthService } from '../auth.service';
+import { userResponse } from '../interface';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +14,12 @@ import { LoginService } from './login.service';
 export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
+    private fb: FormBuilder,
+    private authService: AuthService,
     private loginService: LoginService,
-    private fb: FormBuilder
+    private notifyService: NotificationService
   ) {}
+
   loginData: any;
   loginForm: FormGroup;
 
@@ -23,26 +29,41 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log('Form Submitted', this.loginForm.value);
+      console.log('Login form submitted');
+      this.onLogin();
     } else {
-      console.log('form error');
+      this.notifyService.showError(
+        'Please enter fields before submitting',
+        'Error'
+      );
     }
   }
 
   onLogin() {
     this.loginData = {
       email: this.loginForm.get('email').value,
-      password: this.loginForm.get('pwd').value,
+      password: this.loginForm.get('password').value,
     };
 
-    console.log('--------login', this.loginData);
+    //console.log('--------login', this.loginData);
 
     this.loginService.getLogin(this.loginData).subscribe(
-      (res) => {
+      (res: userResponse) => {
+        // console.log('res', res.data.user.role);
         this.router.navigate(['/dashboard']);
+        this.authService.setLocalStorage(
+          'role',
+          res.data.user?.role.toString()
+        );
+        localStorage.setItem('loginData', JSON.stringify(this.loginData));
+        this.notifyService.showSuccess(
+          'Logged In successfully !!!',
+          'SUCCESS !!!'
+        );
       },
       (error) => {
-        console.log('error', error);
+        //console.log('error', error.error.message);
+        this.notifyService.showSuccess(error.error.message, 'FAILURE !!!');
       }
     );
   }
@@ -50,7 +71,7 @@ export class LoginComponent implements OnInit {
   private buildForm() {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
-      pwd: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 }

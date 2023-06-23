@@ -64,27 +64,39 @@
         <table>
           <tr>
             <td>Serial No:</td>
-            <td>SN1234</td>
+            <td>{{ instrumentDetails.serialNo }}</td>
           </tr>
           <tr>
             <td>Make:</td>
-            <td>Keithly</td>
+            <td>{{ instrumentDetails.make }}</td>
           </tr>
           <tr>
             <td>Model:</td>
-            <td>K1234</td>
+            <td>{{ instrumentDetails.model }}</td>
           </tr>
           <tr>
-            <td>Last Callibration:</td>
-            <td>31-05-2023</td>
+            <td>Last Calibration:</td>
+            <td>
+              {{
+                instrumentDetails.lastCalibrationDate
+                  | date : "dd-MMMM-y" || "-"
+              }}
+            </td>
           </tr>
           <tr>
-            <td>Next Callibration:</td>
-            <td>31-05-2023</td>
+            <td>Next Calibration:</td>
+            <td>
+              {{
+                instrumentDetails.nextCalibrationDue | date : "dd-MMMM-y" || "-"
+              }}
+            </td>
           </tr>
           <tr>
             <td>Calibration Lead Time:</td>
-            <td>2 hours</td>
+            <td>
+              {{ instrumentDetails.calLeadTime || "-" }}
+              hours
+            </td>
           </tr>
         </table>
       </div>

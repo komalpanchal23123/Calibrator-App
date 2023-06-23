@@ -45,7 +45,9 @@
               "
             >
               All Instruments
-              <a routerLink="/add-edit-instrument"
+              <a
+                routerLink="/add-edit-instrument"
+                *ngIf="userRole !== 'calibrator'"
                 ><span style="padding-left: 600px; font-size: 18px"
                   >+ Add new Instrument</span
                 ></a
@@ -67,44 +69,31 @@
             <th>Assigned To</th>
             <th>Second Person</th>
           </tr>
-          <tr>
+          <tr *ngFor="let allInstrument of allInstruments; let i = index">
             <td>
-              <a routerLink="/instrument-details"
+              <a
+                routerLink="/instrument-details"
+                *ngIf="userRole !== 'calibrator'"
+                (click)="edit(allInstrument._id || '')"
                 ><span class="glyphicon glyphicon-edit"></span
               ></a>
-              S1234
+              {{ allInstrument.serialNo || "-" }}
             </td>
-            <td>Smith</td>
-            <td>K1234</td>
-            <td>05-Jun-2023</td>
-            <td>David</td>
-            <td>Kiara</td>
-          </tr>
-          <tr>
             <td>
-              <a routerLink="/instrument-details"
-                ><span class="glyphicon glyphicon-edit"></span
-              ></a>
-              S1234
+              {{ allInstrument.make || "-" }}
             </td>
-            <td>Smith</td>
-            <td>K1234</td>
-            <td>05-Jun-2023</td>
-            <td>David</td>
-            <td>Kiara</td>
-          </tr>
-          <tr>
             <td>
-              <a routerLink="/instrument-details"
-                ><span class="glyphicon glyphicon-edit"></span
-              ></a>
-              S1234
+              {{ allInstrument.model || "-" }}
             </td>
-            <td>Smith</td>
-            <td>K1234</td>
-            <td>05-Jun-2023</td>
-            <td>David</td>
-            <td>Kiara</td>
+            <td>
+              {{ allInstrument.calibrationDueDate | date : "dd-MMMM-y" || "-" }}
+            </td>
+            <td>
+              {{ allInstrument.assignedTo || "-" }}
+            </td>
+            <td>
+              {{ allInstrument.secondPerson || "-" }}
+            </td>
           </tr>
         </table>
       </div>

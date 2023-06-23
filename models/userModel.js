@@ -5,7 +5,7 @@ const validator = require("validator");
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Please provide your name"],
+    //required: [true, "Please provide your name"],
   },
   email: {
     type: String,
@@ -17,8 +17,8 @@ const userSchema = new mongoose.Schema({
   photo: { type: String, default: "default.jpg" },
   role: {
     type: String,
-    enum: ["user", "manager", "lead-guide", "admin"],
-    default: "user",
+    enum: ["calibrator", "manager", "admin"],
+    default: "calibrator",
   },
   password: {
     type: String,
@@ -29,13 +29,13 @@ const userSchema = new mongoose.Schema({
   passwordConfirm: {
     type: String,
     //required: [true, "Please confirm your ConfirmPassword"],
-    // validate: {
-    //   // this only works on create and  save !
-    //   validator: function (el) {
-    //     return el === this.password;
-    //   },
-    //   message: "Password are not same !",
-    // },
+    validate: {
+      // this only works on create and  save !
+      validator: function (el) {
+        return el === this.password;
+      },
+      message: "Password are not same !",
+    },
   },
   //passwordChangedAt: { type: Date, default: Date.now },
   // passwordResetToken: { type: String },

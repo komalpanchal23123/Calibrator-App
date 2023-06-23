@@ -6,6 +6,7 @@ const port = 3000;
 const dotenv = require("dotenv");
 const path = require("path");
 const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
 const globalErrorHandler = require("./controller/errorController");
 const AppError = require("./utils/appError");
 const app = express();
@@ -16,9 +17,10 @@ app.use(cors());
 
 dotenv.config({ path: "./config.env" });
 
-const viewRouter = require("./routes/viewsRoutes");
 const userRouter = require("./routes/userRoutes");
 const instrumentRouter = require("./routes/instrumentRoutes");
+const groupRouter = require("./routes/groupRoutes");
+const teamRouter = require("./routes/teamRoutes");
 
 // Development Logging
 // console.log(process.env.NODE_ENV);
@@ -45,29 +47,22 @@ app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "static")));
 app.use(cookieParser());
-
-// app.get("/", (req, res) => {
-//   res.status(200).send(req.headers);
-//   //console.log(req.headers);
-// });
+app.use(bodyParser.json());
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
 });
 
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./app/login/login.html"));
-// });
-
 app.listen(port, (req, res) => {
   console.log(`App running on port ${port}...`);
 });
 
 //ROUTES
-app.use("/", viewRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/instruments", instrumentRouter);
+app.use("/api/v1/group", groupRouter);
+app.use("/api/v1/team", teamRouter);
 
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server !!!`, 404));

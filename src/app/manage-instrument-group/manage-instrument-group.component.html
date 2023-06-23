@@ -25,7 +25,7 @@
 
     <div class="main-body">
       <div class="container">
-        <p class="avatar avatar-name">Manager</p>
+        <p class="avatar avatar-name">{{ userRole | titlecase }}</p>
         <img
           src="../../assets/img/img_avatar.png"
           alt="Avatar"
@@ -47,46 +47,18 @@
             <th>Start Of Availability</th>
             <th>End Of Availability</th>
           </tr>
-          <tr>
-            <td>Jill</td>
-            <td>Smith</td>
+          <tr *ngFor="let allGroup of allGroups; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ allGroup.groupName || "-" }}</td>
             <td>
-              05-Jun-2023 4pm<a href=""
-                ><span class="glyphicon glyphicon-edit"></span
-              ></a>
+              <!-- <input type="date" name="" id="" /> -->
+              {{
+                allGroup.startOfAvailability | date : "dd-MMMM-y h:mm a" || "-"
+              }}<a><span class="glyphicon glyphicon-calendar"></span></a>
             </td>
             <td>
-              05-Jun-2023 4pm<a href=""
-                ><span class="glyphicon glyphicon-edit"></span
-              ></a>
-            </td>
-          </tr>
-          <tr>
-            <td>Eve</td>
-            <td>Jackson</td>
-            <td>
-              05-Jun-2023 4pm<a href=""
-                ><span class="glyphicon glyphicon-edit"></span
-              ></a>
-            </td>
-            <td>
-              05-Jun-2023 4pm<a href=""
-                ><span class="glyphicon glyphicon-edit"></span
-              ></a>
-            </td>
-          </tr>
-          <tr>
-            <td>Adam</td>
-            <td>Johnson</td>
-            <td>
-              05-Jun-2023 4pm<a href=""
-                ><span class="glyphicon glyphicon-edit"></span
-              ></a>
-            </td>
-            <td>
-              05-Jun-2023 4pm<a href=""
-                ><span class="glyphicon glyphicon-edit"></span
-              ></a>
+              {{ allGroup.endOfAvailability | date : "dd-MMMM-y h:mm a" || "-"
+              }}<a><span class="glyphicon glyphicon-calendar"></span></a>
             </td>
           </tr>
         </table>

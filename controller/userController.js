@@ -1,9 +1,7 @@
 const User = require("../models/userModel");
-const catchAsync = require("../utils/catchAsync");
-const APIFeatures = require("../utils/apiFeature");
 const factory = require("../utils/handlerFactory");
 
-exports.getAllUsers = catchAsync(async (req, res, next) => {
+exports.getAllUsers = async (req, res, next) => {
   //console.log("++++++++++++", req.body);
   const user = await User.find();
   res.status(200).json({
@@ -14,7 +12,7 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
     },
   });
   //console.log("++++++++++++", req.body);
-});
+};
 
 exports.getUser = factory.getOne(User);
 exports.updateUser = factory.updateOne(User);

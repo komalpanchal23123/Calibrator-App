@@ -22,6 +22,8 @@ import { AddEditInstrumentRoutingModule } from './add-edit-instrument/add-edit-i
 import { ManageCalibrationTeamComponent } from './manage-calibration-team/manage-calibration-team.component';
 import { ManageCalibrationTeamRoutingModule } from './manage-calibration-team/manage-calibration-team-routing.module';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
@@ -50,6 +53,7 @@ import { CommonModule } from '@angular/common';
     InstrumentDetailsRoutingModule,
     AddEditInstrumentRoutingModule,
     ManageCalibrationTeamRoutingModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
