@@ -15,6 +15,7 @@ export class InstrumentDetailsService {
   instrumentId: string;
 
   ngOnInit(): void {
+    // this.getInstrumentDetails();
     this.getInstrumentDetail(this.instrumentId);
   }
 

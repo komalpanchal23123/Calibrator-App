@@ -39,32 +39,29 @@ td {
     padding: 5px;
 }
 
-/* .table-history {
+.table-history {
     background-color: #f2f2f2;
     border: 1px solid #ddd;
-} */
-
-.table-next {
-    font-size: medium;
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid black;
 }
 
-.table-next-th,
-.table-next-td {
-    text-align: center;
-    padding: 16px;
+.comments {
+    border: 2px solid grey;
+    width: 700px;
+    margin-left: 50px;
 }
 
-.table-next-tr:nth-child(even) {
-    background-color: #f2f2f2;
+.calstudio {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 20px;
 }
 
-.table-next-tr:nth-child(odd) {
-    background-color: #d8d6d6;
+.a-calstudio {
+    padding: 10px;
+    font-size: 18px;
 }
+
 
 /* tr:nth-child(even) {
     background-color: #f2f2f2;

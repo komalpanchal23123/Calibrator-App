@@ -1,249 +1,236 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  </head>
-
-  <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" routerLink="/dashboard">Instrument Details</a>
-        </div>
-      </div>
-    </nav>
-
-    <div class="main-body">
-      <div class="container">
-        <!-- <p class="avatar avatar-name">Manager</p> -->
-        <img
-          src="../../assets/img/img_avatar.png"
-          alt="Avatar"
-          class="avatar"
-          style="margin-right: 0px"
-        />
-      </div>
-
-      <div class="container" style="padding-left: 900px; font-size: 20px">
-        <a routerLink="/add-edit-instrument">+ Edit Instruments Details</a>
-      </div>
-      &nbsp;
-
-      <div class="container">
-        <table>
-          <tr>
-            <th
-              style="
-                font-size: x-large;
-                background-color: #c0c0c0;
-                text-align: left;
-              "
-            >
-              Instruments Detail
-              <a
-                ><span style="padding-left: 700px; font-size: 18px"
-                  >+ Make a Copy</span
-                ></a
-              >
-            </th>
-          </tr>
-        </table>
-        &nbsp;
-      </div>
-      &nbsp;
-
-      <div class="container">
-        <table>
-          <tr>
-            <td>Serial No:</td>
-            <td>{{ instrumentDetails.serialNo }}</td>
-          </tr>
-          <tr>
-            <td>Make:</td>
-            <td>{{ instrumentDetails.make }}</td>
-          </tr>
-          <tr>
-            <td>Model:</td>
-            <td>{{ instrumentDetails.model }}</td>
-          </tr>
-          <tr>
-            <td>Last Calibration:</td>
-            <td>
-              {{
-                instrumentDetails.lastCalibrationDate
-                  | date : "dd-MMMM-y" || "-"
-              }}
-            </td>
-          </tr>
-          <tr>
-            <td>Next Calibration:</td>
-            <td>
-              {{
-                instrumentDetails.nextCalibrationDue | date : "dd-MMMM-y" || "-"
-              }}
-            </td>
-          </tr>
-          <tr>
-            <td>Calibration Lead Time:</td>
-            <td>
-              {{ instrumentDetails.calLeadTime || "-" }}
-              hours
-            </td>
-          </tr>
-        </table>
-      </div>
-      &nbsp;
-
-      <div class="container">
-        <table>
-          <tr>
-            <th
-              style="
-                font-size: x-large;
-                background-color: #c0c0c0;
-                text-align: left;
-              "
-            >
-              Calibration Instructions
-              <a routerLink="/add-edit-instrument"
-                ><span style="padding-left: 600px; font-size: 18px"
-                  >+ Add new Instruction</span
-                ></a
-              >
-            </th>
-          </tr>
-        </table>
-        &nbsp;
-      </div>
-      &nbsp;
-
-      <div class="container">
-        <table>
-          <tr>
-            <td>Keithly K1234 Cert. Template Rev.3</td>
-            <td>
-              <a style="padding: 30px"
-                ><span class="glyphicon glyphicon-search"></span
-              ></a>
-            </td>
-          </tr>
-          <tr>
-            <td>Keithly K1234 Cert. Template Rev.2</td>
-            <td>
-              <a style="padding: 30px"
-                ><span class="glyphicon glyphicon-search"></span
-              ></a>
-            </td>
-          </tr>
-        </table>
-      </div>
-      &nbsp;
-
-      <div class="container">
-        <table>
-          <tr>
-            <th
-              style="
-                font-size: x-large;
-                background-color: #c0c0c0;
-                text-align: left;
-              "
-            >
-              Calibration Certificate Templates
-              <a routerLink="/add-edit-instrument"
-                ><span style="padding-left: 450px; font-size: 18px"
-                  >+ Add new Certificate Template</span
-                ></a
-              >
-            </th>
-          </tr>
-        </table>
-        &nbsp;
-      </div>
-      &nbsp;
-
-      <div class="container">
-        <table>
-          <tr>
-            <td>Keithly K1234 Cert. Template Rev.2</td>
-            <td>
-              <a style="padding: 30px"
-                ><span class="glyphicon glyphicon-search"></span
-              ></a>
-              <a><span class="glyphicon glyphicon-cloud-download"></span></a>
-            </td>
-          </tr>
-          <tr>
-            <td>Keithly K1234 Cert. Template Rev.1</td>
-            <td>
-              <a style="padding: 30px"
-                ><span class="glyphicon glyphicon-search"></span
-              ></a>
-              <a><span class="glyphicon glyphicon-cloud-download"></span></a>
-            </td>
-          </tr>
-        </table>
-      </div>
-      &nbsp;
-
-      <div class="container">
-        <table>
-          <tr>
-            <th
-              style="
-                font-size: x-large;
-                background-color: #c0c0c0;
-                text-align: left;
-              "
-            >
-              Calibration History
-            </th>
-          </tr>
-        </table>
-        &nbsp;
-      </div>
-      &nbsp;
-
-      <div class="container">
-        <table class="table-history">
-          <tr style="font-size: large">
-            <th>Last Calibration Date</th>
-            <th>Next Calibration Due</th>
-            <th>Assigned To</th>
-            <th>Second Person</th>
-            <th>Calibrate</th>
-          </tr>
-          <tr>
-            <td>S1234</td>
-            <td>Smith</td>
-            <td>K1234</td>
-            <td>05-Jun-2023</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>S1234</td>
-            <td>Smith</td>
-            <td>K1234</td>
-            <td>05-Jun-2023</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>S1234</td>
-            <td>Smith</td>
-            <td>K1234</td>
-            <td>05-Jun-2023</td>
-            <td></td>
-          </tr>
-        </table>
-      </div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/all-instrument"
+        >Instrument Details</a
+      >
     </div>
-  </body>
-</html>
+  </div>
+</nav>
+
+<div class="main-body">
+  <div class="container">
+    <!-- <p class="avatar avatar-name">Manager</p> -->
+    <img
+      src="../../assets/img/img_avatar.png"
+      alt="Avatar"
+      class="avatar"
+      style="margin-right: 0px"
+    />
+  </div>
+
+  <div class="container" style="padding-left: 900px; font-size: 20px">
+    <a routerLink="/add-edit-instrument">+ Edit Instruments Details</a>
+  </div>
+  &nbsp;
+
+  <div class="container">
+    <table>
+      <tr>
+        <th
+          style="
+            font-size: x-large;
+            background-color: #c0c0c0;
+            text-align: left;
+          "
+        >
+          Instruments Detail
+          <a
+            ><span style="padding-left: 700px; font-size: 18px"
+              >+ Make a Copy</span
+            ></a
+          >
+        </th>
+      </tr>
+    </table>
+    &nbsp;
+  </div>
+  &nbsp;
+
+  <div class="container">
+    <table>
+      <tr>
+        <td>Serial No:</td>
+        <td>{{ instrumentDetails.serialNo }}</td>
+      </tr>
+      <tr>
+        <td>Make:</td>
+        <td>{{ instrumentDetails.make }}</td>
+      </tr>
+      <tr>
+        <td>Model:</td>
+        <td>{{ instrumentDetails.model }}</td>
+      </tr>
+      <tr>
+        <td>Last Calibration:</td>
+        <td>
+          {{
+            instrumentDetails.lastCalibrationDate | date : "dd-MMMM-y" || "-"
+          }}
+        </td>
+      </tr>
+      <tr>
+        <td>Next Calibration:</td>
+        <td>
+          {{ instrumentDetails.nextCalibrationDue | date : "dd-MMMM-y" || "-" }}
+        </td>
+      </tr>
+      <tr>
+        <td>Calibration Lead Time:</td>
+        <td>
+          {{ instrumentDetails.calLeadTime || "-" }}
+          hours
+        </td>
+      </tr>
+    </table>
+  </div>
+  &nbsp;
+
+  <div class="container">
+    <table>
+      <tr>
+        <th
+          style="
+            font-size: x-large;
+            background-color: #c0c0c0;
+            text-align: left;
+          "
+        >
+          Calibration Instructions
+          <a routerLink="/add-edit-instrument"
+            ><span style="padding-left: 600px; font-size: 18px"
+              >+ Add new Instruction</span
+            ></a
+          >
+        </th>
+      </tr>
+    </table>
+    &nbsp;
+  </div>
+  &nbsp;
+
+  <div class="container">
+    <table>
+      <tr>
+        <td>Keithly K1234 Cert. Template Rev.3</td>
+        <td>
+          <a style="padding: 30px"
+            ><span class="glyphicon glyphicon-search"></span
+          ></a>
+        </td>
+        <td>
+          <button type="button" class="btn-success" (click)="onCalibrate()">
+            Calibrate
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>Keithly K1234 Cert. Template Rev.2</td>
+        <td>
+          <a style="padding: 30px"
+            ><span class="glyphicon glyphicon-search"></span
+          ></a>
+        </td>
+        <td>
+          <button type="button" class="btn-success" (click)="onCalibrate()">
+            Calibrate
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  &nbsp;
+
+  <div class="container">
+    <table>
+      <tr>
+        <th
+          style="
+            font-size: x-large;
+            background-color: #c0c0c0;
+            text-align: left;
+          "
+        >
+          Calibration Certificate Templates
+          <a routerLink="/add-edit-instrument"
+            ><span style="padding-left: 450px; font-size: 18px"
+              >+ Add new Certificate Template</span
+            ></a
+          >
+        </th>
+      </tr>
+    </table>
+    &nbsp;
+  </div>
+  &nbsp;
+
+  <div class="container">
+    <table>
+      <tr>
+        <td>Keithly K1234 Cert. Template Rev.2</td>
+        <td>
+          <a style="padding: 30px"
+            ><span class="glyphicon glyphicon-search"></span
+          ></a>
+          <a><span class="glyphicon glyphicon-cloud-download"></span></a>
+        </td>
+      </tr>
+      <tr>
+        <td>Keithly K1234 Cert. Template Rev.1</td>
+        <td>
+          <a style="padding: 30px"
+            ><span class="glyphicon glyphicon-search"></span
+          ></a>
+          <a><span class="glyphicon glyphicon-cloud-download"></span></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+  &nbsp;
+
+  <div class="container">
+    <table>
+      <tr>
+        <th
+          style="
+            font-size: x-large;
+            background-color: #c0c0c0;
+            text-align: left;
+          "
+        >
+          Calibration History
+        </th>
+      </tr>
+    </table>
+    &nbsp;
+  </div>
+  &nbsp;
+
+  <div class="container">
+    <table class="table-next">
+      <tr style="font-size: large" class="table-next-tr">
+        <th class="table-next-th">Cal Start</th>
+        <th class="table-next-th">Cal Finish</th>
+        <th class="table-next-th">Calibrated By</th>
+        <th class="table-next-th">Comments</th>
+        <th class="table-next-th">Next Due</th>
+      </tr>
+      <tr class="table-next-tr">
+        <td class="table-next-td">
+          {{ instrumentDetails.calStart | date : "dd-MMMM-y h:mm a" || "-" }}
+        </td>
+        <td class="table-next-td">
+          {{ instrumentDetails.calFinish | date : "dd-MMMM-y h:mm a" || "-" }}
+        </td>
+        <td class="table-next-td">{{ instrumentDetails.calibratedBy }}</td>
+        <td class="table-next-td">{{ instrumentDetails.comments }}</td>
+        <td class="table-next-td">
+          {{
+            instrumentDetails.nextCalibrationDue
+              | date : "dd-MMMM-y h:mm a" || "-"
+          }}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

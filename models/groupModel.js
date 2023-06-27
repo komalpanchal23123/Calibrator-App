@@ -12,6 +12,9 @@ const groupSchema = new mongoose.Schema({
   endOfAvailability: {
     type: Date,
   },
+  recursivePeriod: {
+    type: String,
+  },
 });
 
 const Group = mongoose.model("Group", groupSchema);

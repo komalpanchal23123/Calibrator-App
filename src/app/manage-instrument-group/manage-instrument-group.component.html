@@ -1,68 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  </head>
-
-  <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" routerLink="/dashboard"
-            >Manage Instrument Groups</a
-          >
-        </div>
-      </div>
-    </nav>
-
-    <div class="main-body">
-      <div class="container">
-        <p class="avatar avatar-name">{{ userRole | titlecase }}</p>
-        <img
-          src="../../assets/img/img_avatar.png"
-          alt="Avatar"
-          class="avatar"
-          style="margin-right: 0px"
-        />
-      </div>
-
-      <div class="container" style="padding-left: 900px; font-size: 20px">
-        <a>+ Add new group</a>
-      </div>
-      &nbsp;
-
-      <div class="container">
-        <table>
-          <tr style="font-size: large">
-            <th>Group Sr</th>
-            <th>Group Name</th>
-            <th>Start Of Availability</th>
-            <th>End Of Availability</th>
-          </tr>
-          <tr *ngFor="let allGroup of allGroups; let i = index">
-            <td>{{ i + 1 }}</td>
-            <td>{{ allGroup.groupName || "-" }}</td>
-            <td>
-              <!-- <input type="date" name="" id="" /> -->
-              {{
-                allGroup.startOfAvailability | date : "dd-MMMM-y h:mm a" || "-"
-              }}<a><span class="glyphicon glyphicon-calendar"></span></a>
-            </td>
-            <td>
-              {{ allGroup.endOfAvailability | date : "dd-MMMM-y h:mm a" || "-"
-              }}<a><span class="glyphicon glyphicon-calendar"></span></a>
-            </td>
-          </tr>
-        </table>
-      </div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/dashboard"
+        >Manage Instrument Groups</a
+      >
     </div>
-  </body>
-</html>
+  </div>
+</nav>
+
+<div class="main-body">
+  <div class="container">
+    <p class="avatar avatar-name">{{ userRole | titlecase }}</p>
+    <img
+      src="../../assets/img/img_avatar.png"
+      alt="Avatar"
+      class="avatar"
+      style="margin-right: 0px"
+    />
+  </div>
+
+  <div class="container" style="padding-left: 900px; font-size: 20px">
+    <a href="/add-instrument-group">+ Add new group</a>
+  </div>
+  &nbsp;
+
+  <div class="container">
+    <table>
+      <tr style="font-size: large">
+        <th>Group Sr</th>
+        <th>Cluster Name</th>
+        <th>Start Of Availability</th>
+        <th>End Of Availability</th>
+        <th>Recursive Period</th>
+      </tr>
+      <tr *ngFor="let allGroup of allGroups; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ allGroup.groupName || "-" }}</td>
+        <td>
+          {{ allGroup.startOfAvailability | date : "dd-MMMM-y h:mm a" || "-" }}
+        </td>
+        <td>
+          {{ allGroup.endOfAvailability | date : "dd-MMMM-y h:mm a" || "-"
+          }}<a><span class="glyphicon glyphicon-edit"></span></a>
+        </td>
+        <td>
+          None<a><span class="glyphicon glyphicon-edit"></span></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,199 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/dashboard">Add Instrument Groups</a>
+    </div>
+  </div>
+</nav>
+
+<div class="main-body">
+  <div class="container">
+    <label style="font-size: 20px">Cluster Name</label>
+    <input placeholder="Test Lab" style="margin: 30px" />
+
+    <p class="avatar avatar-name">{{ userRole | titlecase }}</p>
+    <img
+      src="../../assets/img/img_avatar.png"
+      alt="Avatar"
+      class="avatar"
+      style="margin-right: 0px"
+    />
+  </div>
+
+  <div class="container">
+    <table>
+      <tr>
+        <th
+          style="
+            font-size: x-large;
+            background-color: #c0c0c0;
+            text-align: left;
+            display: flex;
+            align-items: center;
+          "
+        >
+          Cluster Availability
+        </th>
+      </tr>
+    </table>
+    &nbsp;
+
+    <div class="row-card">
+      <div class="column">
+        <div class="card-border">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-body">
+                <h3 class="card-title">
+                  Immediate Availability
+                  <span style="float: end; margin-left: 50px">
+                    <span style="margin: 10px"><input type="checkbox" /></span
+                    >Recursive</span
+                  >
+                </h3>
+              </div>
+
+              <!-- <p class="card-text"> -->
+              <table
+                class="card-text"
+                style="display: flex; flex-direction: column; font-size: 15px"
+              >
+                <tr>
+                  <td>Start Date & Time:</td>
+                  <td style="padding-left: 50px">
+                    <input type="text" placeholder="05-Jun-2023 4pm" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>End Date & Time:</td>
+                  <td style="padding-left: 58px">
+                    <input type="text" placeholder="05-Jun-2023 4pm" />
+                  </td>
+                </tr>
+              </table>
+              <!-- </p> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="card-border">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-body">
+                <h3 class="card-title">Availability 2</h3>
+              </div>
+
+              <!-- <p class="card-text"> -->
+              <table
+                class="card-text"
+                style="display: flex; flex-direction: column; font-size: 15px"
+              >
+                <tr>
+                  <td>Start Date & Time:</td>
+                  <td style="padding-left: 50px">
+                    <input type="text" placeholder="05-Jun-2023 4pm" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>End Date & Time:</td>
+                  <td style="padding-left: 58px">
+                    <input type="text" placeholder="05-Jun-2023 4pm" />
+                  </td>
+                </tr>
+              </table>
+              <!-- </p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-border" style="width: 1050px">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-body">
+              <h3 class="card-title">Next Recurring Period</h3>
+            </div>
+
+            <table
+              class="card-text"
+              style="display: flex; flex-direction: column; font-size: 15px"
+            >
+              <tr>
+                <td>Start Date & Time:</td>
+                <td style="padding-left: 50px">
+                  <input type="text" placeholder="05-Jun-2023 4pm" />
+                </td>
+              </tr>
+              <tr>
+                <td>Start Date & Time:</td>
+                <td style="padding-left: 50px">
+                  <input type="text" placeholder="05-Jun-2023 4pm" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="font-size: large; font-weight: 550">
+                    <span style="margin: 8px; font-size: medium"
+                      ><input type="checkbox" /></span
+                    >Stops After</span
+                  >
+                </td>
+                <td style="padding-left: 50px">
+                  <input type="text" placeholder="05-Jun-2023 4pm" />
+                </td>
+              </tr>
+            </table>
+
+            <table class="table-next">
+              <tr style="font-size: large" class="table-next-tr">
+                <th class="table-next-th">Availability</th>
+                <th class="table-next-th">Open for Collabration</th>
+                <th class="table-next-th">Close for Collabration</th>
+              </tr>
+              <tr class="table-next-tr">
+                <td class="table-next-td"></td>
+                <td class="table-next-td"></td>
+                <td class="table-next-td"></td>
+              </tr>
+              <tr class="table-next-tr">
+                <td class="table-next-td"></td>
+                <td class="table-next-td"></td>
+                <td class="table-next-td"></td>
+              </tr>
+              <tr class="table-next-tr">
+                <td class="table-next-td"></td>
+                <td class="table-next-td"></td>
+                <td class="table-next-td"></td>
+              </tr>
+              <tr class="table-next-tr">
+                <td class="table-next-td"></td>
+                <td class="table-next-td"></td>
+                <td class="table-next-td"></td>
+              </tr>
+              <tr class="table-next-tr">
+                <td class="table-next-td"></td>
+                <td class="table-next-td"></td>
+                <td class="table-next-td"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <table>
+        <tr>
+          <td>
+            <a
+              ><span style="padding: 100px; font-size: 18px"
+                >+ Add More Availability</span
+              ></a
+            >
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  &nbsp;
+</div>

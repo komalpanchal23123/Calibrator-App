@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
       .getAllInstruments()
       .subscribe((res: calibrationAssignedResponse) => {
         this.calibrationAssigns = res.data.instrument;
-        console.log(res);
+        // console.log(res);
       });
   }
 }

@@ -9,6 +9,9 @@ const teamSchema = new mongoose.Schema({
   teamAroundTime: {
     type: Number,
   },
+  user: {
+    type: String,
+  },
 });
 
 const Team = mongoose.model("Team", teamSchema);

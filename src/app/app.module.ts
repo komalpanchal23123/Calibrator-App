@@ -24,6 +24,10 @@ import { ManageCalibrationTeamRoutingModule } from './manage-calibration-team/ma
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { CalibrateInstrumentComponent } from './calibrate-instrument/calibrate-instrument.component';
+import { CalibrateInstrumentRoutingModule } from './calibrate-instrument/calibrate-instrument-routing.module';
+import { AddInstrumentGroupComponent } from './add-instrument-group/add-instrument-group.component';
+import { AddInstrumentGroupRoutingModule } from './add-instrument-group/add-instrument-group-routing.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,8 @@ import { ToastrModule } from 'ngx-toastr';
     InstrumentDetailsComponent,
     AddEditInstrumentComponent,
     ManageCalibrationTeamComponent,
+    CalibrateInstrumentComponent,
+    AddInstrumentGroupComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +59,8 @@ import { ToastrModule } from 'ngx-toastr';
     InstrumentDetailsRoutingModule,
     AddEditInstrumentRoutingModule,
     ManageCalibrationTeamRoutingModule,
+    CalibrateInstrumentRoutingModule,
+    AddInstrumentGroupRoutingModule,
     ToastrModule.forRoot(),
   ],
   providers: [],

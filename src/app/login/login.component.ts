@@ -12,6 +12,7 @@ import { userResponse } from '../interface';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  title: 'Login Form';
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log('Login form submitted');
+      //console.log('Login form submitted');
       this.onLogin();
     } else {
       this.notifyService.showError(
@@ -62,8 +63,8 @@ export class LoginComponent implements OnInit {
         );
       },
       (error) => {
-        //console.log('error', error.error.message);
-        this.notifyService.showSuccess(error.error.message, 'FAILURE !!!');
+        // console.log('error', error.error.message);
+        this.notifyService.showError(error.error.message, 'FAILURE !!!');
       }
     );
   }

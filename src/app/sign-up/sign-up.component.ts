@@ -27,7 +27,7 @@ export class SignUpComponent implements OnInit {
 
   onSubmit() {
     if (this.signUpForm.valid) {
-      console.log('Signup form submitted');
+      // console.log('Signup form submitted');
       this.onSignUp();
     } else {
       this.notifyService.showError(
@@ -43,7 +43,7 @@ export class SignUpComponent implements OnInit {
       password: this.signUpForm.get('password').value,
       confirmPassword: this.signUpForm.get('confirmPassword').value,
     };
-    console.log('=======signUp', this.signupData);
+    //console.log('=======signUp', this.signupData);
 
     this.signUpService.getSignUp(this.signupData).subscribe(
       (res) => {

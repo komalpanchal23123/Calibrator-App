@@ -10,6 +10,10 @@
     flex-direction: column;
 }
 
+.container {
+    width: 1500px;
+}
+
 .avatar {
     /* vertical-align: middle; */
     margin: 20px;
@@ -19,33 +23,62 @@
     float: right;
 }
 
-/* .avatar-name {
+.avatar-name {
     margin-top: 40px;
     margin-right: 10px;
     font-size: 20px;
-} */
+}
+
+.clusterName {
+    padding: 20px;
+}
 
 table {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
-    border: 0px solid #ddd;
-    font-size: 20px;
+    /* border: 1px solid #ddd; */
+}
+
+.column {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.row-card {
+    display: flex;
+}
+
+.card-border {
+    border: 1px grey solid;
+    background-color: lightgrey;
+    border-radius: 10px;
+    margin: 5px;
+    width: 400px;
+}
+
+.card-body {
+    /* padding: 5px; */
+    margin: 10px;
+}
+
+.card-title {
+    font-size: 18px;
+    padding-bottom: 20px;
+}
+
+.card-text {
+    margin: 10px;
 }
 
 th,
 td {
-    text-align: left;
-    padding: 5px;
+    text-align: start;
+    padding-bottom: 20px;
 }
 
-/* .table-history {
-    background-color: #f2f2f2;
-    border: 1px solid #ddd;
-} */
-
 .table-next {
-    font-size: medium;
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
@@ -65,7 +98,3 @@ td {
 .table-next-tr:nth-child(odd) {
     background-color: #d8d6d6;
 }
-
-/* tr:nth-child(even) {
-    background-color: #f2f2f2;
-} */

@@ -69,6 +69,7 @@ export interface groupData {
   groupName: string;
   startOfAvailability: string;
   endOfAvailability: string;
+  recursivePeriod: string;
 }
 
 export interface teamResponse {
@@ -80,4 +81,5 @@ export interface teamResponse {
 export interface teamData {
   teamName: string;
   teamAroundTime: string;
+  user: string;
 }

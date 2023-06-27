@@ -44,11 +44,16 @@
           <tr style="font-size: large">
             <th>Team Sr</th>
             <th>Team Name</th>
+            <th>User</th>
             <th>Turn around time</th>
           </tr>
           <tr *ngFor="let allTeam of allTeams; let i = index">
             <td>{{ i + 1 }}</td>
             <td>{{ allTeam.teamName || "-" }}</td>
+            <td>
+              {{ allTeam.user || "-"
+              }}<a><span class="glyphicon glyphicon-edit"></span></a>
+            </td>
             <td>
               {{ allTeam.teamAroundTime || "-" }} hours<a
                 ><span class="glyphicon glyphicon-edit"></span

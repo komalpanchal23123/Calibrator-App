@@ -8,6 +8,10 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
@@ -96,6 +100,7 @@
             <th>Model</th>
             <th>Calibration Due Date</th>
             <th>Status</th>
+            <th>Alert</th>
           </tr>
           <tr *ngFor="let calibrationAssign of calibrationAssigns">
             <td>{{ calibrationAssign.serialNo || "-" }}</td>
@@ -106,7 +111,18 @@
                 calibrationAssign.calibrationDueDate | date : "dd-MMMM-y" || "-"
               }}
             </td>
-            <td>{{ calibrationAssign.status || "-" }}</td>
+            <td>
+              <span
+                *ngIf="calibrationAssign.status === 'Not Calibrated'"
+                class="glyphicon glyphicon-remove red"
+              ></span>
+
+              <span
+                *ngIf="calibrationAssign.status === 'calibrated'"
+                class="glyphicon glyphicon-ok green"
+              ></span>
+            </td>
+            <td><span class="glyphicon glyphicon-time"></span></td>
           </tr>
         </table>
       </div>

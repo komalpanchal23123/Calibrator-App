@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AllInstrumentsService } from '../all-instruments/all-instruments.service';
-import { instrumentData, instrumentResponse } from '../interface';
 import { InstrumentDetailsService } from './instrument-details.service';
-import { takeUntil } from 'rxjs';
+import { Router } from '@angular/router';
+import {} from '../interface';
 
 @Component({
   selector: 'app-instrument-details',
@@ -11,6 +11,7 @@ import { takeUntil } from 'rxjs';
 })
 export class InstrumentDetailsComponent implements OnInit {
   constructor(
+    private router: Router,
     private allInstrumentsService: AllInstrumentsService,
     private instrumentDetailsService: InstrumentDetailsService
   ) {}
@@ -33,8 +34,12 @@ export class InstrumentDetailsComponent implements OnInit {
     this.instrumentDetailsService
       .getInstrumentDetail(this.instrumentId)
       .subscribe((res: any) => {
-        // console.log('res.data.instrument', res.data.data);
+        //console.log('res.data.instrument', res.data.data);
         this.instrumentDetails = res.data.data;
       });
+  }
+
+  onCalibrate() {
+    this.router.navigate(['/calibrate-instrument']);
   }
 }

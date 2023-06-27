@@ -52,6 +52,21 @@ const instrumentSchema = new mongoose.Schema({
   calLeadTime: {
     type: Number,
   },
+  user: {
+    type: String,
+  },
+  calStart: {
+    type: Date,
+  },
+  calFinish: {
+    type: Date,
+  },
+  calibratedBy: {
+    type: String,
+  },
+  comments: {
+    type: String,
+  },
 });
 
 const Instrument = mongoose.model("Instrument", instrumentSchema);
