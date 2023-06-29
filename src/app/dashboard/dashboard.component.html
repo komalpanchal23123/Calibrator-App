@@ -1,164 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  </head>
-
-  <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand">DashBoard</a>
-        </div>
-      </div>
-    </nav>
-
-    <div class="main-body">
-      <div>
-        <img
-          src="../../assets/img/img_avatar.png"
-          alt="Avatar"
-          class="avatar"
-          style="float: right"
-        />
-      </div>
-
-      <div class="container" *ngIf="userRole !== 'calibrator'">
-        <table>
-          <tr>
-            <th
-              style="
-                font-size: xx-large;
-                background-color: #c0c0c0;
-                text-align: left;
-              "
-            >
-              Pending Approvals
-            </th>
-          </tr>
-        </table>
-        &nbsp;
-
-        <table>
-          <tr style="font-size: large">
-            <th>Instrument Sr.No</th>
-            <th>Make</th>
-            <th>Model</th>
-            <th>Calibrator</th>
-            <th>Certificate</th>
-            <th>Approve</th>
-          </tr>
-          <tr *ngFor="let pendingApproval of pendingApprovals">
-            <td>{{ pendingApproval.serialNo || "-" }}</td>
-            <td>{{ pendingApproval.make || "-" }}</td>
-            <td>{{ pendingApproval.model || "-" }}</td>
-            <td>{{ pendingApproval.calibrator || "-" }}</td>
-            <td>{{ pendingApproval.certificate || "-" }}</td>
-            <td>{{ pendingApproval.approve || "-" }}</td>
-          </tr>
-        </table>
-      </div>
-      &nbsp;
-
-      <div class="container">
-        <table>
-          <tr>
-            <th
-              style="
-                font-size: xx-large;
-                background-color: #c0c0c0;
-                text-align: left;
-              "
-            >
-              Upcoming Calibration Assigned To You
-            </th>
-          </tr>
-        </table>
-
-        <div>
-          <button type="button" class="button" routerLink="/all-instrument">
-            View All Instruments
-          </button>
-        </div>
-
-        <table>
-          <tr style="font-size: large">
-            <th>Instrument Sr.No</th>
-            <th>Make</th>
-            <th>Model</th>
-            <th>Calibration Due Date</th>
-            <th>Status</th>
-            <th>Alert</th>
-          </tr>
-          <tr *ngFor="let calibrationAssign of calibrationAssigns">
-            <td>{{ calibrationAssign.serialNo || "-" }}</td>
-            <td>{{ calibrationAssign.make || "-" }}</td>
-            <td>{{ calibrationAssign.model || "-" }}</td>
-            <td>
-              {{
-                calibrationAssign.calibrationDueDate | date : "dd-MMMM-y" || "-"
-              }}
-            </td>
-            <td>
-              <span
-                *ngIf="calibrationAssign.status === 'Not Calibrated'"
-                class="glyphicon glyphicon-remove red"
-              ></span>
-
-              <span
-                *ngIf="calibrationAssign.status === 'calibrated'"
-                class="glyphicon glyphicon-ok green"
-              ></span>
-            </td>
-            <td><span class="glyphicon glyphicon-time"></span></td>
-          </tr>
-        </table>
-      </div>
-      &nbsp;
-
-      <div class="container" *ngIf="userRole !== 'calibrator'">
-        <table>
-          <tr>
-            <th
-              style="
-                font-size: xx-large;
-                background-color: #c0c0c0;
-                text-align: left;
-              "
-            >
-              Manage Calstudio
-            </th>
-          </tr>
-        </table>
-        &nbsp;
-
-        <div class="calstudio">
-          <a routerLink="/add-edit-instrument" class="a-calstudio"
-            >Manage Users</a
-          >
-          <a routerLink="/all-instrument" class="a-calstudio"
-            >Manage Instruments</a
-          >
-          <a routerLink="/manage-instrument-group" class="a-calstudio"
-            >Manage Instrument Groups</a
-          >
-          <a routerLink="/manage-calibration-team" class="a-calstudio"
-            >Manage Calibration Team</a
-          >
-        </div>
-      </div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">DashBoard</a>
     </div>
-  </body>
-</html>
+  </div>
+</nav>
+
+<div class="main-body">
+  <div>
+    <img
+      src="../../assets/img/img_avatar.png"
+      alt="Avatar"
+      class="avatar"
+      style="float: right"
+    />
+  </div>
+
+  <div class="container" *ngIf="userRole !== 'calibrator'">
+    <table>
+      <tr>
+        <th
+          style="
+            font-size: xx-large;
+            background-color: #c0c0c0;
+            text-align: left;
+          "
+        >
+          Pending Approvals
+        </th>
+      </tr>
+    </table>
+    &nbsp;
+
+    <table>
+      <tr style="font-size: large">
+        <th>Instrument Sr.No</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Calibrator</th>
+        <th>Certificate</th>
+        <th>Approve</th>
+      </tr>
+      <tr *ngFor="let pendingApproval of pendingApprovals">
+        <td>{{ pendingApproval.serialNo || "-" }}</td>
+        <td>{{ pendingApproval.make || "-" }}</td>
+        <td>{{ pendingApproval.model || "-" }}</td>
+        <td>{{ pendingApproval.calibrator || "-" }}</td>
+        <td>{{ pendingApproval.certificate || "-" }}</td>
+        <td>{{ pendingApproval.approve || "-" }}</td>
+      </tr>
+    </table>
+  </div>
+  &nbsp;
+
+  <div class="container">
+    <table>
+      <tr>
+        <th
+          style="
+            font-size: xx-large;
+            background-color: #c0c0c0;
+            text-align: left;
+          "
+        >
+          Upcoming Calibration Assigned To You
+        </th>
+      </tr>
+    </table>
+
+    <div>
+      <button type="button" class="button" routerLink="/all-instrument">
+        View All Instruments
+      </button>
+    </div>
+
+    <table>
+      <tr style="font-size: large">
+        <th>Instrument Sr.No</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Calibration Due Date</th>
+        <th>Status</th>
+        <th>Alert</th>
+      </tr>
+      <tr *ngFor="let calibrationAssign of calibrationAssigns">
+        <td>{{ calibrationAssign.serialNo || "-" }}</td>
+        <td>{{ calibrationAssign.make || "-" }}</td>
+        <td>{{ calibrationAssign.model || "-" }}</td>
+        <td>
+          {{ calibrationAssign.calibrationDueDate | date : "dd-MMMM-y" || "-" }}
+        </td>
+        <td>
+          <span
+            *ngIf="calibrationAssign.status === 'Not Calibrated'"
+            class="glyphicon glyphicon-remove red"
+          ></span>
+
+          <span
+            *ngIf="calibrationAssign.status === 'calibrated'"
+            class="glyphicon glyphicon-ok green"
+          ></span>
+        </td>
+        <td><span class="glyphicon glyphicon-time"></span></td>
+      </tr>
+    </table>
+  </div>
+  &nbsp;
+
+  <div class="container" *ngIf="userRole !== 'calibrator'">
+    <table>
+      <tr>
+        <th
+          style="
+            font-size: xx-large;
+            background-color: #c0c0c0;
+            text-align: left;
+          "
+        >
+          Manage Calstudio
+        </th>
+      </tr>
+    </table>
+    &nbsp;
+
+    <div class="calstudio">
+      <a routerLink="/add-edit-instrument" class="a-calstudio">Manage Users</a>
+      <a routerLink="/all-instrument" class="a-calstudio">Manage Instruments</a>
+      <a routerLink="/manage-instrument-group" class="a-calstudio"
+        >Manage Instrument Groups</a
+      >
+      <a routerLink="/manage-calibration-team" class="a-calstudio"
+        >Manage Calibration Team</a
+      >
+    </div>
+  </div>
+</div>

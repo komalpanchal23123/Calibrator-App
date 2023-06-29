@@ -1,6 +1,5 @@
 const APIFeatures = require("../utils/apiFeature");
 const AppError = require("../utils/appError");
-const catchAsync = require("../utils/catchAsync");
 
 exports.deleteOne = (Model) => async (req, res, next) => {
   const doc = await Model.findByIdAndDelete(req.params.id);
@@ -35,7 +34,7 @@ exports.updateOne = (Model) => async (req, res, next) => {
 
 exports.createOne = (Model) => async (req, res, next) => {
   const doc = await Model.create(req.body);
-  // console.log("=========", req.body);
+  // console.log("==========", req.body);
   res.status(201).json({
     status: "success",
     data: {

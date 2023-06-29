@@ -150,30 +150,23 @@
                 <th class="table-next-th">Open for Collabration</th>
                 <th class="table-next-th">Close for Collabration</th>
               </tr>
-              <tr class="table-next-tr">
-                <td class="table-next-td"></td>
-                <td class="table-next-td"></td>
-                <td class="table-next-td"></td>
-              </tr>
-              <tr class="table-next-tr">
-                <td class="table-next-td"></td>
-                <td class="table-next-td"></td>
-                <td class="table-next-td"></td>
-              </tr>
-              <tr class="table-next-tr">
-                <td class="table-next-td"></td>
-                <td class="table-next-td"></td>
-                <td class="table-next-td"></td>
-              </tr>
-              <tr class="table-next-tr">
-                <td class="table-next-td"></td>
-                <td class="table-next-td"></td>
-                <td class="table-next-td"></td>
-              </tr>
-              <tr class="table-next-tr">
-                <td class="table-next-td"></td>
-                <td class="table-next-td"></td>
-                <td class="table-next-td"></td>
+              <tr
+                class="table-next-tr"
+                *ngFor="let instrumentGroup of instrumentGroups; let i = index"
+              >
+                <td class="table-next-td">{{ i + 1 }}</td>
+                <td class="table-next-td">
+                  {{
+                    instrumentGroup.startOfAvailability
+                      | date : "dd-MMMM-y h:mm a" || "-"
+                  }}
+                </td>
+                <td class="table-next-td">
+                  {{
+                    instrumentGroup.endOfAvailability
+                      | date : "dd-MMMM-y h:mm a" || "-"
+                  }}
+                </td>
               </tr>
             </table>
           </div>

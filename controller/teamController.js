@@ -3,7 +3,17 @@ const factory = require("../utils/handlerFactory");
 
 exports.getAllTeams = async (req, res, next) => {
   //console.log("++++++++++++", req.body);
-  const team = await Team.find();
+  //const team = await Team.find();
+  const team = await Team.aggregate([
+    {
+      $lookup: {
+        from: "instruments",
+        localField: "calibrationTeam",
+        foreignField: "teamName",
+        as: "teamUp",
+      },
+    },
+  ]);
   res.status(200).json({
     status: "success",
     results: team.length,
